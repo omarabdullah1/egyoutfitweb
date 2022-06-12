@@ -165,7 +165,11 @@ class CodegenLoader extends AssetLoader{
     "passwordUpdatedSuccessfully": "تم تحديث كلمة السر بنجاح",
     "yourItems": "عربة التسوق الخاصة بك",
     "yourOffers": "العروض",
-    "noOrdersYet": "لا توجد طلبات حتى الآن"
+    "noOrdersYet": "لا توجد طلبات حتى الآن",
+    "home": "الصفحة الرئيسية",
+    "yourCart": "عربة التسوق",
+    "yourFavourites": "مفضلاتك",
+    "yourSetting": "الإعدادات"
   },
   "sellerAcountScreen": {
     "account": "الحساب",
@@ -406,7 +410,11 @@ static const Map<String,dynamic> en = {
     "passwordUpdatedSuccessfully": "Password Updated Successfully",
     "yourItems": "Your Cart",
     "yourOffers": "The Offers",
-    "noOrdersYet": "No Orders Yet"
+    "noOrdersYet": "No Orders Yet",
+    "home": "Home",
+    "yourCart": "Your Cart",
+    "yourFavourites": "Your Favourites",
+    "yourSetting": "Settings"
   },
   "sellerAcountScreen": {
     "account": "Account",

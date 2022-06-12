@@ -149,7 +149,11 @@
     "passwordUpdatedSuccessfully": "Password Updated Successfully",
     "yourItems": "Your Cart",
     "yourOffers": "The Offers",
-    "noOrdersYet": "No Orders Yet"
+    "noOrdersYet": "No Orders Yet",
+    "home": "Home",
+    "yourCart": "Your Cart",
+    "yourFavourites": "Your Favourites",
+    "yourSetting": "Settings"
   },
   "sellerAcountScreen": {
     "account": "Account",

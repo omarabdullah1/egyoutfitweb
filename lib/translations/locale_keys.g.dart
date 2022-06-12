@@ -145,6 +145,10 @@ abstract class  LocaleKeys {
   static const alerts_yourItems = 'alerts.yourItems';
   static const alerts_yourOffers = 'alerts.yourOffers';
   static const alerts_noOrdersYet = 'alerts.noOrdersYet';
+  static const alerts_home = 'alerts.home';
+  static const alerts_yourCart = 'alerts.yourCart';
+  static const alerts_yourFavourites = 'alerts.yourFavourites';
+  static const alerts_yourSetting = 'alerts.yourSetting';
   static const alerts = 'alerts';
   static const sellerAcountScreen_account = 'sellerAcountScreen.account';
   static const sellerAcountScreen_welcome = 'sellerAcountScreen.welcome';

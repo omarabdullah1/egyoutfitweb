@@ -334,11 +334,11 @@ class _ShopLayoutState extends State<ShopLayout> {
                       cubit.currentIndex=0;
                       cubit.counterChange();
                     },
-                    child: const ListTile(
+                    child:  ListTile(
                       title: Text(
-                        'Home',
+                        LocaleKeys.alerts_home.tr(),
                       ),
-                      leading: Icon(Icons.home_filled),
+                      leading: const Icon(Icons.home_filled),
                     ),
                   ),
                   InkWell(
@@ -346,11 +346,11 @@ class _ShopLayoutState extends State<ShopLayout> {
                       cubit.currentIndex=1;
                       cubit.counterChange();
                     },
-                    child: const ListTile(
+                    child:  ListTile(
                       title: Text(
-                        'Cart',
+                        LocaleKeys.alerts_yourCart.tr(),
                       ),
-                      leading: Icon(Icons.shopping_cart),
+                      leading: const Icon(Icons.shopping_cart),
                     ),
                   ),
                   InkWell(
@@ -358,11 +358,11 @@ class _ShopLayoutState extends State<ShopLayout> {
                       cubit.currentIndex=2;
                       cubit.counterChange();
                     },
-                    child: const ListTile(
+                    child:  ListTile(
                       title: Text(
-                        'Offers',
+                        LocaleKeys.alerts_yourOffers.tr(),
                       ),
-                      leading: Icon(Icons.local_offer),
+                      leading: const Icon(Icons.local_offer),
                     ),
                   ),
                   InkWell(
@@ -370,11 +370,11 @@ class _ShopLayoutState extends State<ShopLayout> {
                       cubit.currentIndex=3;
                       cubit.counterChange();
                     },
-                    child: const ListTile(
+                    child: ListTile(
                       title: Text(
-                        'Favourites',
+                        LocaleKeys.alerts_yourFavourites.tr(),
                       ),
-                      leading: Icon(Icons.favorite),
+                      leading: const Icon(Icons.favorite),
                     ),
                   ),
                   InkWell(
@@ -382,11 +382,11 @@ class _ShopLayoutState extends State<ShopLayout> {
                       cubit.currentIndex=4;
                       cubit.counterChange();
                     },
-                    child: const ListTile(
+                    child: ListTile(
                       title: Text(
-                        'Profile',
+                        LocaleKeys.alerts_yourSetting.tr(),
                       ),
-                      leading: Icon(Icons.person),
+                      leading: const Icon(Icons.person),
                     ),
                   ),
                 ],
