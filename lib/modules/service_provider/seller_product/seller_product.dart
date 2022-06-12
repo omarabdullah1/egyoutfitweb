@@ -72,302 +72,254 @@ class SellerProduct extends StatelessWidget {
                     icon: const Icon(Icons.delete)),
               ],
             ),
-            body: SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Row(
-                          children: [
-                            CircleAvatar(
-                              backgroundColor:
-                              DashboardCubit.get(context)
-                                  .productDropDownValueColor,
-                              radius: 5.0,
-                            ),
-                            const SizedBox(
-                              width: 5.0,
-                            ),
-                            Container(
-                              decoration: BoxDecoration(
-                                borderRadius:
-                                BorderRadius.circular(15.0),
-                                shape: BoxShape.rectangle,
-                              ),
-                              child: DropdownButton(
-                                value: DashboardCubit.get(context)
-                                    .productDropDownValueEn,
-                                icon: const Icon(
-                                    Icons.keyboard_arrow_down),
-                                items: DashboardCubit.get(context)
-                                    .productProductItemsEn
-                                    .map((String items) {
-                                  return DropdownMenuItem(
-                                    value: items,
-                                    child: Text(items),
-                                  );
-                                }).toList(),
-                                onChanged: (newValue) async {
-                                  DashboardCubit.get(context)
-                                      .changeProductDropButtonValue(
-                                    newValue,
-                                    context,
-                                  );
-                                  DashboardCubit.get(context)
-                                      .changeProductColor(
-                                    newValue,
-                                  );
-                                  DashboardCubit.get(context)
-                                      .changeProductState(
-                                    true,
-                                  );
-                                  await DashboardCubit.get(context).changeOrderProductState(
-                                    newValue,
-                                    modelId,
-                                    context,
-                                  );
-                                },
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-
-                    Container(
-                      width: MediaQuery.of(context).size.width - 20.0,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15.0),
-                          border: Border.all(width: 2.0, color: Colors.black)),
-                      child: Stack(
+            body: Center(
+              child: Container(
+                width: MediaQuery.of(context).size.width/2,
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.black,width: 2.0),
+                  borderRadius: BorderRadius.circular(14.0),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SingleChildScrollView(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
                         children: [
-                          CarouselSlider(
-                            items: models.image.isEmpty
-                                ? const [Icon(Icons.image)]
-                                : models.image
-                                    .map((e) => Image.network(e))
-                                    .toList(),
-                            options: CarouselOptions(
-                              onPageChanged: (index, reason) {
-                                DashboardCubit.get(context)
-                                    .changeProductCarousel(index);
-                              },
-                              aspectRatio: 1.0,
-                              height: 240,
-                              viewportFraction: 1.0,
-                              enlargeCenterPage: false,
-                              initialPage: 0,
-                              enableInfiniteScroll: true,
-                              reverse: false,
-                              autoPlay: false,
-                              autoPlayInterval: const Duration(seconds: 3),
-                              autoPlayAnimationDuration:
-                                  const Duration(seconds: 1),
-                              autoPlayCurve: Curves.fastOutSlowIn,
-                              scrollDirection: Axis.horizontal,
-                            ),
-                            // carouselController: caroController,
-                          ),
-                          Positioned(
-                              bottom: 0.0,
-                              right: 0.0,
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: SizedBox(
-                                    width: 50.0,
-                                    height: 50.0,
-                                    child: FloatingActionButton(
-                                      heroTag: 'uniqueTa',
-                                      onPressed: () {
-                                        navigateTo(
-                                            context,
-                                            EditProductImageScreen(
-                                              pId: modelId,
-                                              pListImage: models.image,
-                                            ));
-                                      },
-                                      child: const Icon(
-                                        Icons.edit,
-                                        size: 20.0,
-                                      ),
-                                    )),
-                              )),
-                        ],
-                      ),
-                    ),
-                    DotsIndicator(
-                      dotsCount: models.image.length,
-                      position: DashboardCubit.get(context)
-                          .productCaroIndex
-                          .toDouble(),
-                      decorator: DotsDecorator(
-                        size: const Size.square(9.0),
-                        activeSize: const Size(18.0, 9.0),
-                        activeShape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5.0)),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(
-                          top: 8.0, right: 8.0, left: 8.0),
-                      child: Row(
-                        children: [
-                          SizedBox(
-                            height: 30.0,
-                            width: 80.0,
-                            child: Text(
-                              models.name,
-                              maxLines: 1,
-                              style: const TextStyle(
-                                  fontSize: 18.0, fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                          const Spacer(),
                           Container(
-                            width: 120.0,
-                            height: 30.0,
+                            width: MediaQuery.of(context).size.width - 20.0,
                             decoration: BoxDecoration(
-                                color: Colors.green,
-                                borderRadius: BorderRadius.circular(8.0)),
-                            child: Center(
-                              child: Text(
-                                models.category,
-                                style: const TextStyle(color: Colors.white),
-                              ),
+                                borderRadius: BorderRadius.circular(15.0),
+                                border: Border.all(width: 2.0, color: Colors.black)),
+                            child: Stack(
+                              children: [
+                                CarouselSlider(
+                                  items: models.image.isEmpty
+                                      ? const [Icon(Icons.image)]
+                                      : models.image
+                                          .map((e) => Image.network(e))
+                                          .toList(),
+                                  options: CarouselOptions(
+                                    onPageChanged: (index, reason) {
+                                      DashboardCubit.get(context)
+                                          .changeProductCarousel(index);
+                                    },
+                                    aspectRatio: 1.0,
+                                    height: 240,
+                                    viewportFraction: 1.0,
+                                    enlargeCenterPage: false,
+                                    initialPage: 0,
+                                    enableInfiniteScroll: true,
+                                    reverse: false,
+                                    autoPlay: false,
+                                    autoPlayInterval: const Duration(seconds: 3),
+                                    autoPlayAnimationDuration:
+                                        const Duration(seconds: 1),
+                                    autoPlayCurve: Curves.fastOutSlowIn,
+                                    scrollDirection: Axis.horizontal,
+                                  ),
+                                  // carouselController: caroController,
+                                ),
+                                Positioned(
+                                    bottom: 0.0,
+                                    right: 0.0,
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: SizedBox(
+                                          width: 50.0,
+                                          height: 50.0,
+                                          child: FloatingActionButton(
+                                            heroTag: 'uniqueTa',
+                                            onPressed: () {
+                                              navigateTo(
+                                                  context,
+                                                  EditProductImageScreen(
+                                                    pId: modelId,
+                                                    pListImage: models.image,
+                                                  ));
+                                            },
+                                            child: const Icon(
+                                              Icons.edit,
+                                              size: 20.0,
+                                            ),
+                                          )),
+                                    )),
+                              ],
                             ),
                           ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(
-                          top: 8.0, right: 8.0, left: 8.0),
-                      child: Row(
-                        children: [
-                          SizedBox(
-                            height: 30.0,
-                            child: Text(
-                              'Price: ${models.price} LE',
-                              // overflow: TextOverflow.ellipsis,
-                              // maxLines: 1,
+                          DotsIndicator(
+                            dotsCount: models.image.length,
+                            position: DashboardCubit.get(context)
+                                .productCaroIndex
+                                .toDouble(),
+                            decorator: DotsDecorator(
+                              size: const Size.square(9.0),
+                              activeSize: const Size(18.0, 9.0),
+                              activeShape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5.0)),
                             ),
                           ),
-                          const Spacer(),
-                          SizedBox(
-                              height: 30.0,
-                              child: Center(
-                                  child:
-                                      Text('Discount: % ${models.discount}')))
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(
-                          top: 8.0, right: 8.0, left: 8.0),
-                      child: Row(
-                        children: [
-                          const Text('Old Price:  '),
-                          Text(models.oldPrice.toString() + ' LE'),
-                        ],
-                      ),
-                    ),
-                    models.isShipping
-                        ? Padding(
+                          Padding(
                             padding: const EdgeInsets.only(
                                 top: 8.0, right: 8.0, left: 8.0),
                             child: Row(
                               children: [
-                                const Text('Delivery:  '),
-                                Text(models.shippingPrice + ' LE'),
+                                SizedBox(
+                                  height: 30.0,
+                                  width: 80.0,
+                                  child: Text(
+                                    models.name,
+                                    maxLines: 1,
+                                    style: const TextStyle(
+                                        fontSize: 18.0, fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                                const Spacer(),
+                                Container(
+                                  width: 120.0,
+                                  height: 30.0,
+                                  decoration: BoxDecoration(
+                                      color: Colors.green,
+                                      borderRadius: BorderRadius.circular(8.0)),
+                                  child: Center(
+                                    child: Text(
+                                      models.category,
+                                      style: const TextStyle(color: Colors.white),
+                                    ),
+                                  ),
+                                ),
                               ],
                             ),
-                          )
-                        : const SizedBox(),
-                    Padding(
-                      padding: const EdgeInsets.only(
-                          top: 8.0, right: 8.0, left: 8.0),
-                      child: Row(
-                        children: [
-                          Text(
-                            models.description,
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 5,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(
+                                top: 8.0, right: 8.0, left: 8.0),
+                            child: Row(
+                              children: [
+                                SizedBox(
+                                  height: 30.0,
+                                  child: Text(
+                                    'Price: ${models.price} LE',
+                                    // overflow: TextOverflow.ellipsis,
+                                    // maxLines: 1,
+                                  ),
+                                ),
+                                const Spacer(),
+                                SizedBox(
+                                    height: 30.0,
+                                    child: Center(
+                                        child:
+                                            Text('Discount: % ${models.discount}')))
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(
+                                top: 8.0, right: 8.0, left: 8.0),
+                            child: Row(
+                              children: [
+                                const Text('Old Price:  '),
+                                Text(models.oldPrice.toString() + ' LE'),
+                              ],
+                            ),
+                          ),
+                          models.isShipping
+                              ? Padding(
+                                  padding: const EdgeInsets.only(
+                                      top: 8.0, right: 8.0, left: 8.0),
+                                  child: Row(
+                                    children: [
+                                      const Text('Delivery:  '),
+                                      Text(models.shippingPrice + ' LE'),
+                                    ],
+                                  ),
+                                )
+                              : const SizedBox(),
+                          Padding(
+                            padding: const EdgeInsets.only(
+                                top: 8.0, right: 8.0, left: 8.0),
+                            child: Row(
+                              children: [
+                                Text(
+                                  models.description,
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 5,
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(
+                                top: 8.0, right: 8.0, left: 8.0),
+                            child: Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    if (models.isS)
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: buildSizeCircle(
+                                            size: 'S', state: models.isS),
+                                      ),
+                                    if (models.isM)
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: buildSizeCircle(
+                                            size: 'M', state: models.isM),
+                                      ),
+                                    if (models.isL)
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: buildSizeCircle(
+                                            size: 'L', state: models.isL),
+                                      ),
+                                    if (models.isXL)
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: buildSizeCircle(
+                                            size: 'XL', state: models.isXL),
+                                      )
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    if (models.is2XL)
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: buildSizeCircle(
+                                            size: '2XL', state: models.is2XL),
+                                      ),
+                                    if (models.is3XL)
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: buildSizeCircle(
+                                            size: '3XL', state: models.is3XL),
+                                      ),
+                                    if (models.is4XL)
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: buildSizeCircle(
+                                            size: '4XL', state: models.is4XL),
+                                      ),
+                                    if (models.is5XL)
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: buildSizeCircle(
+                                            size: '5XL', state: models.is5XL),
+                                      )
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
                         ],
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(
-                          top: 8.0, right: 8.0, left: 8.0),
-                      child: Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              if (models.isS)
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: buildSizeCircle(
-                                      size: 'S', state: models.isS),
-                                ),
-                              if (models.isM)
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: buildSizeCircle(
-                                      size: 'M', state: models.isM),
-                                ),
-                              if (models.isL)
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: buildSizeCircle(
-                                      size: 'L', state: models.isL),
-                                ),
-                              if (models.isXL)
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: buildSizeCircle(
-                                      size: 'XL', state: models.isXL),
-                                )
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              if (models.is2XL)
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: buildSizeCircle(
-                                      size: '2XL', state: models.is2XL),
-                                ),
-                              if (models.is3XL)
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: buildSizeCircle(
-                                      size: '3XL', state: models.is3XL),
-                                ),
-                              if (models.is4XL)
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: buildSizeCircle(
-                                      size: '4XL', state: models.is4XL),
-                                ),
-                              if (models.is5XL)
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: buildSizeCircle(
-                                      size: '5XL', state: models.is5XL),
-                                )
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
               ),
             ),
